@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_recipee_app/utils/constants/color_constants.dart';
 import 'package:food_recipee_app/utils/constants/image_constsants.dart';
+import 'package:food_recipee_app/view/bottom_navbar_screen/bottom_navbar_screen.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
@@ -14,13 +15,51 @@ class OnboardingScreen extends StatelessWidget {
           _buildBackgroundImage(),
 
           //second section - gradient with start cooking button
-          _buildGradientSection(),
+          _buildGradientSection(context),
+          _BuildHeaderSection()
         ],
       ),
     );
   }
 
-  Widget _buildGradientSection() {
+  Positioned _BuildHeaderSection() {
+    return Positioned(
+      right: 0,
+      left: 0,
+      top: 13,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(
+            Icons.star,
+            color: ColorConstants.mainwhite,
+          ),
+          SizedBox(width: 10),
+          // Text(
+          //   "data",
+          //   style: TextStyle(color: ColorConstants.mainwhite),
+          // )
+          RichText(
+              text: TextSpan(
+                  text: "60k+",
+                  style: TextStyle(
+                      color: ColorConstants.mainwhite,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16),
+                  children: [
+                TextSpan(
+                    text: " Premium recipes",
+                    style: TextStyle(
+                        color: ColorConstants.mainwhite,
+                        fontWeight: FontWeight.normal,
+                        fontSize: 16))
+              ]))
+        ],
+      ),
+    );
+  }
+
+  Widget _buildGradientSection(BuildContext context) {
     return Positioned(
       bottom: 0,
       left: 0,
@@ -54,31 +93,40 @@ class OnboardingScreen extends StatelessWidget {
                   fontWeight: FontWeight.normal),
             ),
             SizedBox(height: 40),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: ColorConstants.primarycolor,
-              ),
-              padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Start Cooking",
-                    style: TextStyle(
-                        color: ColorConstants.mainwhite,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Icon(
-                    Icons.arrow_forward,
-                    size: 20,
-                    color: ColorConstants.mainwhite,
-                  )
-                ],
+            InkWell(
+              onTap: () {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => BottomNavbarScreen(),
+                    ));
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: ColorConstants.primarycolor,
+                ),
+                padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Start Cooking",
+                      style: TextStyle(
+                          color: ColorConstants.mainwhite,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Icon(
+                      Icons.arrow_forward,
+                      size: 20,
+                      color: ColorConstants.mainwhite,
+                    )
+                  ],
+                ),
               ),
             )
           ],
