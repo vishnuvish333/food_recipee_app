@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_recipee_app/utils/constants/color_constants.dart';
+import 'package:food_recipee_app/view/home_screen/home_screen.dart';
 
 class BottomNavbarScreen extends StatefulWidget {
   const BottomNavbarScreen({super.key});
@@ -12,9 +13,7 @@ class _BottomNavbarScreenState extends State<BottomNavbarScreen> {
   int selectedTab = 0;
 
   List screens = [
-    Container(
-      color: Colors.red,
-    ),
+    HomeScreen(),
     Container(
       color: Colors.blue,
     ),
@@ -37,9 +36,6 @@ class _BottomNavbarScreenState extends State<BottomNavbarScreen> {
           Icons.add,
           color: ColorConstants.mainwhite,
         ),
-      ),
-      appBar: AppBar(
-        title: Text("Bottom Nav Bar Screen"),
       ),
       body: (screens[selectedTab]),
       bottomNavigationBar: BottomNavigationBar(
