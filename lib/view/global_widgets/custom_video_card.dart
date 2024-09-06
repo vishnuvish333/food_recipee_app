@@ -3,33 +3,37 @@ import 'package:food_recipee_app/utils/constants/color_constants.dart';
 
 class CustomVideoCard extends StatelessWidget {
   String rating;
+  double width;
   String title;
   String duration;
   String username;
   String profileimage;
+  String imageurl;
   CustomVideoCard({
+    this.width = 280,
     required this.rating,
     required this.title,
     required this.duration,
     required this.username,
     required this.profileimage,
+    required this.imageurl,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 280,
+      width: width,
       child: Column(
         children: [
           Container(
             padding: EdgeInsets.all(8),
             height: 180,
-            width: 280,
+            width: width,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(13),
                 image: DecorationImage(
-                    fit: BoxFit.cover, image: NetworkImage("$profileimage"))),
+                    fit: BoxFit.cover, image: NetworkImage("$imageurl"))),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

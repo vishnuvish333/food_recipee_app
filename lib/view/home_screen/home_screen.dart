@@ -165,6 +165,7 @@ class HomeScreen extends StatelessWidget {
                     username: DummyDb.trendingNowList[index]["username"],
                     profileimage: DummyDb.trendingNowList[index]
                         ["profileimage"],
+                        imageurl: DummyDb.trendingNowList[index]["imageurl"],
                   ),
               separatorBuilder: (context, index) => SizedBox(
                     width: 16,
