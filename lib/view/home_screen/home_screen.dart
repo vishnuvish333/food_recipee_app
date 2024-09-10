@@ -3,6 +3,7 @@ import 'package:food_recipee_app/utils/constants/color_constants.dart';
 import 'package:food_recipee_app/view/dummy_db.dart';
 import 'package:food_recipee_app/view/global_widgets/custom_video_card.dart';
 import 'package:food_recipee_app/view/home_screen/widgets/popular_category_card.dart';
+import 'package:food_recipee_app/view/recipee_details_screen/recipee_details_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -159,13 +160,28 @@ class HomeScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 20),
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) => CustomVideoCard(
+                    onCardTaped: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => RecipeeDetailsScreen(
+                              recipeeTitle: DummyDb.trendingNowList[index]
+                                  ["title"],
+                              image: DummyDb.trendingNowList[index]["imageurl"],
+                              rating: DummyDb.trendingNowList[index]["rating"],
+                              profileimage: DummyDb.trendingNowList[index]
+                                  ["profileimage"],
+                                  username:  DummyDb.trendingNowList[index]["username"],
+                            ),
+                          ));
+                    },
                     rating: DummyDb.trendingNowList[index]["rating"],
                     title: DummyDb.trendingNowList[index]["title"],
                     duration: DummyDb.trendingNowList[index]["duration"],
                     username: DummyDb.trendingNowList[index]["username"],
                     profileimage: DummyDb.trendingNowList[index]
                         ["profileimage"],
-                        imageurl: DummyDb.trendingNowList[index]["imageurl"],
+                    imageurl: DummyDb.trendingNowList[index]["imageurl"],
                   ),
               separatorBuilder: (context, index) => SizedBox(
                     width: 16,

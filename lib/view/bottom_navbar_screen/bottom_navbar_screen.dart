@@ -4,11 +4,13 @@ import 'package:food_recipee_app/view/bookmarks_sceen/bookmarkscreen.dart';
 import 'package:food_recipee_app/view/home_screen/home_screen.dart';
 
 class BottomNavbarScreen extends StatefulWidget {
-  const BottomNavbarScreen({super.key});
+  BottomNavbarScreen({super.key});
 
   @override
   State<BottomNavbarScreen> createState() => _BottomNavbarScreenState();
 }
+
+
 
 class _BottomNavbarScreenState extends State<BottomNavbarScreen> {
   int selectedTab = 0;
