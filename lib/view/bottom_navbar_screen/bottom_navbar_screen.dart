@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:food_recipee_app/utils/constants/color_constants.dart';
 import 'package:food_recipee_app/view/bookmarks_sceen/bookmarkscreen.dart';
+import 'package:food_recipee_app/view/create_recipee_screen/create_recipee_screen.dart';
 import 'package:food_recipee_app/view/home_screen/home_screen.dart';
+import 'package:food_recipee_app/view/profile_screen/profile_screen.dart';
+import 'package:hugeicons/hugeicons.dart';
 
 class BottomNavbarScreen extends StatefulWidget {
   BottomNavbarScreen({super.key});
@@ -9,8 +13,6 @@ class BottomNavbarScreen extends StatefulWidget {
   @override
   State<BottomNavbarScreen> createState() => _BottomNavbarScreenState();
 }
-
-
 
 class _BottomNavbarScreenState extends State<BottomNavbarScreen> {
   int selectedTab = 0;
@@ -21,9 +23,7 @@ class _BottomNavbarScreenState extends State<BottomNavbarScreen> {
     Container(
       color: Colors.yellow,
     ),
-    Container(
-      color: Colors.green,
-    ),
+    ProfileScreen(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,13 @@ class _BottomNavbarScreenState extends State<BottomNavbarScreen> {
       floatingActionButton: FloatingActionButton(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
         backgroundColor: ColorConstants.primarycolor,
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => CreateRecipeeScreen(),
+              ));
+        },
         child: Icon(
           Icons.add,
           color: ColorConstants.mainwhite,
@@ -49,12 +55,15 @@ class _BottomNavbarScreenState extends State<BottomNavbarScreen> {
           type: BottomNavigationBarType.fixed,
           items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined),
+              icon: FaIcon(FontAwesomeIcons.house),
               activeIcon: Icon(Icons.home),
               label: "",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.bookmark_outline),
+              icon: HugeIcon(
+                icon: HugeIcons.strokeRoundedBookmark01,
+                color: ColorConstants.mainblack,
+              ),
               activeIcon: Icon(Icons.bookmark),
               label: "",
             ),
