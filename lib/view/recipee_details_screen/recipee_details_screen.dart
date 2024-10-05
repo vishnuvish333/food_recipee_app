@@ -7,12 +7,12 @@ class RecipeeDetailsScreen extends StatelessWidget {
   RecipeeDetailsScreen(
       {super.key,
       required this.recipeeTitle,
-      required this.image,
+      required this.imageurl,
       required this.rating,
       required this.profileimage,
       required this.username});
   String recipeeTitle;
-  String image;
+  String imageurl;
   String rating;
   String username;
   String profileimage;
@@ -64,7 +64,9 @@ class RecipeeDetailsScreen extends StatelessWidget {
             padding: EdgeInsets.symmetric(vertical: 16),
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
-            itemBuilder: (context, index) => CustomListTile(haveArrow: false,),
+            itemBuilder: (context, index) => CustomListTile(
+                  haveArrow: false,
+                ),
             separatorBuilder: (context, index) => SizedBox(
                   height: 12,
                 ),
@@ -90,7 +92,7 @@ class RecipeeDetailsScreen extends StatelessWidget {
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               image: DecorationImage(
-                  fit: BoxFit.cover, image: NetworkImage(image))),
+                  fit: BoxFit.cover, image: NetworkImage(imageurl))),
           child: Center(
             child: CircleAvatar(
               backgroundColor: ColorConstants.lightBlack.withOpacity(.3),

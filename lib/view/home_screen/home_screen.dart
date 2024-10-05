@@ -167,7 +167,7 @@ class HomeScreen extends StatelessWidget {
                             builder: (context) => RecipeeDetailsScreen(
                               recipeeTitle: DummyDb.trendingNowList[index]
                                   ["title"],
-                              image: DummyDb.trendingNowList[index]["imageurl"],
+                              imageurl: DummyDb.trendingNowList[index]["imageurl"],
                               rating: DummyDb.trendingNowList[index]["rating"],
                               profileimage: DummyDb.trendingNowList[index]
                                   ["profileimage"],
